@@ -1,0 +1,93 @@
+.MYbounce {
+
+    position: fixed;
+
+    left: 0;
+
+    top: 10%;
+
+    right: 0;
+
+    margin: auto;
+
+    display: none;
+
+    padding: 10px;
+
+    width: 300px;
+
+    border-radius: 5px;
+
+    z-index: 10;
+
+}
+
+#fixedbutton {
+
+        position: fixed;
+
+        right: 40px;
+
+        bottom: 50px;
+
+        z-index: 10;
+
+        display: none;
+
+    }
+
+    #fixedbutton2 {
+
+        position: fixed;
+
+        right: 160px;
+
+        bottom: 50px;
+
+        z-index: 10;
+
+        display: none;
+
+    }
+
+    #fixedbutton3 {
+
+        position: fixed;
+
+        right: 265px;
+
+        bottom: 50px;
+
+        z-index: 10;
+
+        display: none;
+
+    }
+
+    #fixedbutton4 {
+
+        position: fixed;
+
+        right: 400px;
+
+        bottom: 50px;
+
+        z-index: 10;
+
+        display: none;
+
+    }
+
+    #fixedbutton5 {
+
+        position: fixed;
+
+        right: 280px;
+
+        bottom: 50px;
+
+        z-index: 10;
+
+        display: none;
+
+    }
