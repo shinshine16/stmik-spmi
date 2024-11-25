@@ -17,31 +17,31 @@
     <meta name="apple-mobile-web-app-title" content="SPMI STMIK Bandung" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/vendor.min.css" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/common.css" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/custom.css" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/vendor.min.css" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/common.css" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/custom.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('public') }}/img/logo.png" />
-    <meta content="{{ csrf_token() }}" name="csrf-token" />
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('') }}img/logo.png" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('style')
 
-    {{-- <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('public/arion') }}/img/content/favicons/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/arion') }}/img/content/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('public/arion') }}/img/content/favicons/favicon-96x96.png" /> --}}
+    {{-- <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('arion') }}/img/content/favicons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('arion') }}/img/content/favicons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('arion') }}/img/content/favicons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('arion') }}/img/content/favicons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('arion') }}/img/content/favicons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('arion') }}/img/content/favicons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('arion') }}/img/content/favicons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('arion') }}/img/content/favicons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('arion') }}/img/content/favicons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('arion') }}/img/content/favicons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('arion') }}/img/content/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('arion') }}/img/content/favicons/favicon-96x96.png" /> --}}
 
-    {{-- <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/arion') }}/img/content/favicons/favicon-16x16.png" /> --}}
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('arion') }}/img/content/favicons/favicon-16x16.png" /> --}}
 
     <!-- <link rel="manifest" href="img/content/favicons/manifest.json" />-->
     <meta name="msapplication-TileColor" content="#ffffff" />
@@ -602,16 +602,16 @@
                                 </button>
                                 <div class="lang-menu dropdown-menu">
                                     <button class="lang-menu__button dropdown-menu__item" tabindex="0">
-                                        <img class="lang-menu__icon" src="{{ asset('public/arion') }}/img/content/flags/us.svg" alt="#" /><span class="lang-menu__text">En</span>
+                                        <img class="lang-menu__icon" src="{{ asset('arion') }}/img/content/flags/us.svg" alt="#" /><span class="lang-menu__text">En</span>
                                     </button>
                                     <button class="lang-menu__button dropdown-menu__item" tabindex="0">
-                                        <img class="lang-menu__icon" src="{{ asset('public/arion') }}/img/content/flags/gb.svg" alt="#" /><span class="lang-menu__text">Gb</span>
+                                        <img class="lang-menu__icon" src="{{ asset('arion') }}/img/content/flags/gb.svg" alt="#" /><span class="lang-menu__text">Gb</span>
                                     </button>
                                     <button class="lang-menu__button dropdown-menu__item" tabindex="0">
-                                        <img class="lang-menu__icon" src="{{ asset('public/arion') }}/img/content/flags/ru.svg" alt="#" /><span class="lang-menu__text">Ru</span>
+                                        <img class="lang-menu__icon" src="{{ asset('arion') }}/img/content/flags/ru.svg" alt="#" /><span class="lang-menu__text">Ru</span>
                                     </button>
                                     <button class="lang-menu__button dropdown-menu__item" tabindex="0">
-                                        <img class="lang-menu__icon" src="{{ asset('public/arion') }}/img/content/flags/cn.svg" alt="#" /><span class="lang-menu__text">Cn</span>
+                                        <img class="lang-menu__icon" src="{{ asset('arion') }}/img/content/flags/cn.svg" alt="#" /><span class="lang-menu__text">Cn</span>
                                     </button>
                                     <div class="lang-menu__separate"></div><a class="lang-menu__button lang-menu__button--all dropdown-menu__item" href="#" tabindex="0">Learn</a>
                                 </div>
@@ -749,7 +749,7 @@
                                                     <div class="dropdown-menu__item-left">
                                                         <div class="dropdown-menu__item-icon color-teal">
                                                             <div class="dropdown-menu__item-icon-text">MA</div>
-                                                            <img src="{{ asset('public/arion') }}/img/content/humans/item-4.jpg" alt="#" />
+                                                            <img src="{{ asset('arion') }}/img/content/humans/item-4.jpg" alt="#" />
                                                         </div>
                                                         <div class="badge-signal badge-signal--green"></div>
                                                     </div>
@@ -904,7 +904,7 @@
                             <div class="header__profile dropdown">
                                 <a class="header__profile-toggle dropdown__toggle" href="#" data-toggle="dropdown">
                                     <div class="header__profile-image"><span class="header__profile-image-text">{{ substr(Auth::user()->first_name,0,1) }}</span>
-                                        <img src="{{ asset('public/arion') }}/img/content/humans/item-3.jpg" alt="#" />
+                                        <img src="{{ asset('arion') }}/img/content/humans/item-3.jpg" alt="#" />
                                     </div>
                                     <div class="header__profile-text"><span>{{ Auth::user()->first_name }}</span>
                                     </div><span class="icon-arrow-down">
@@ -972,7 +972,7 @@
                 <div class="sidebar__top">
                     <div class="container container--sm">
                         <a class="sidebar__logo" href="index.html">
-                            <img class="sidebar__logo-icon" src="{{ asset('public/') }}/img/logo_stmik_kampusmerdeka.png" alt="#" width="100" />
+                            <img class="sidebar__logo-icon" src="{{ asset('') }}img/logo_stmik_kampusmerdeka.png" alt="#" width="100" />
                         </a>
                     </div>
                 </div>
@@ -1041,7 +1041,7 @@
                     @csrf
                     <div class="modal__body">
                         <div class="modal__container">
-                            <img class="modal-success__icon" src="{{ asset('public') }}/img/logo.png" alt="#">
+                            <img class="modal-success__icon" src="{{ asset('') }}img/logo.png" alt="#">
                             <h3>Change Password</h3>
                             <div class="col-12 form-group form-group--lg">
                                 <label class="form-label">Old Password</label>
@@ -1080,11 +1080,11 @@
     </div>
     </div>
     @yield('modal')
-    <script src="{{ asset('public/arion') }}/js/gsap/gsap.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollTrigger.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/vendor.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/common.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/gsap.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollTrigger.min.js"></script>
+    <script src="{{ asset('arion') }}/js/vendor.min.js"></script>
+    <script src="{{ asset('arion') }}/js/common.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript">

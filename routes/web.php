@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('log-viewers', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 Auth::routes();
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('change-password', 'Admin\ChangePasswordController@store')->name('change.password');
 

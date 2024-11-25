@@ -1327,7 +1327,7 @@
                                                         <div class="media-item">
                                                             <div class="media-item__icon color-orange">
                                                                 <div class="media-item__icon-text">WS</div>
-                                                                <img class="media-item__thumb" src="{{ asset('public/arion') }}/img/content/humans/item-4.jpg" alt="#" />
+                                                                <img class="media-item__thumb" src="{{ asset('arion') }}/img/content/humans/item-4.jpg" alt="#" />
                                                             </div>
                                                             <div class="media-item__right">
                                                                 <h5 class="media-item__title">Walter Sanders</h5>
@@ -2038,7 +2038,7 @@
                                             <div class="review-list__item">
                                                 <a class="review-list__avatar color-orange" href="reviews.html">
                                                     <div class="review-list__avatar-text">DF</div>
-                                                    <img src="{{ asset('public/arion') }}/img/content/humans/item-4.jpg" alt="#" />
+                                                    <img src="{{ asset('arion') }}/img/content/humans/item-4.jpg" alt="#" />
                                                 </a>
                                                 <div class="review-list__right">
                                                     <h5 class="review-list__name"><a href="reviews.html">Dale Fisher</a></h5><span class="review-list__time">5 hours ago</span>

@@ -12,20 +12,20 @@
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    <link href="{{ asset('public') }}/img/logo.png" rel="icon" type="image/x-icon" />
+    <link href="{{ asset('') }}img/logo.png" rel="icon" type="image/x-icon" />
 
     <!-- Fonts -->
-    <link href="{{ asset('') }}public/user/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('') }}user/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Mobile Menu -->
-    <link href="{{ asset('') }}public/user/css/mmenu.css" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('') }}public/user/css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('') }}user/css/mmenu.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('') }}user/css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
 
     <!-- Accordion Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('') }}public/user/css/jquery.accordion.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('') }}user/css/jquery.accordion.css">
 
     <!-- Stylesheet -->
-    <link href="{{ asset('') }}public/user/style.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('') }}user/style.css" rel="stylesheet" type="text/css" />
 
     @yield('css')
 
@@ -74,27 +74,28 @@
                             </div>
                             <div class="navbar-collapse hidden-sm hidden-xs">
                                 <ul class="nav navbar-nav">
-                                    @foreach ($template_menu as $key => $value)
+                                    
+                                    {{-- @foreach ($kategori as $key => $value)
                                     <li class="dropdown">
                                         <a data-toggle="dropdown" class="dropdown-toggle disabled"
-                                            href="#">{{ $value['nama_menu'] }}</a>
+                                            href="#">{{ $value['menu']['nama_menu'] }}</a>
                                         <ul class="dropdown-menu">
-                                            @foreach ($value['kategori'] as $value_k)
-                                            <li>
-                                                @if ($value_k['terbit'] == 'Ya')
-                                                @if ($value_k['type'] == 'document')
-                                                <a href="{{ route('user_table',$value_k['slug']) }}"
-                                                    style="background-color:transparent;color: black">{{ $value_k['nama_kategori'] }}</a>
+                                            {{-- @foreach ($kategori as $value_k) --}}
+                                            {{-- <li>
+                                                @if ($value['terbit'] == 'Ya')
+                                                @if ($value['type'] == 'document')
+                                                <a href="{{ route('user_table',$value['slug']) }}"
+                                                    style="background-color:transparent;color: black">{{ $value['nama_kategori'] }}</a>
                                                 @else
-                                                <a href="{{ route('user_text', $value_k['slug']) }}"
-                                                    style="background-color:transparent;color: black">{{ $value_k['nama_kategori'] }}</a>
+                                                <a href="{{ route('user_text', $value['slug']) }}"
+                                                    style="background-color:transparent;color: black">{{ $value['nama_kategori'] }}</a>
                                                 @endif
                                                 @endif
                                             </li>
-                                            @endforeach
-                                        </ul>
+                                            {{-- @endforeach --}}
+                                        {{-- </ul>
                                     </li>
-                                    @endforeach
+                                    @endforeach  --}}
                                 </ul>
                             </div>
                         </div>
@@ -107,26 +108,26 @@
                                     <h4>Navigation</h4>
                                     <a href="#" class="close"></a>
                                 </li>
-                                @foreach ($template_menu as $key => $value)
+                                {{-- @foreach ($kategori as $key => $value)
                                 <li>
-                                    <a href="#">{{ $value['nama_menu'] }}</a>
+                                    <a href="#">{{ $value['menu']['nama_menu'] }}</a>
                                     <ul>
-                                        @foreach ($value['kategori'] as $value_k)
-                                        <li>
-                                            @if ($value_k['terbit'] == 'Ya')
-                                            @if ($value_k['type'] == 'document')
-                                            <a href="{{ route('user_table',$value_k['slug']) }}"
-                                                value="{{ $value_k['enc_id'] }}">{{ $value_k['nama_kategori'] }}</a>
+                                        {{-- @foreach ($kategori as $value_k) --}}
+                                        {{-- <li>
+                                            @if ($value['terbit'] == 'Ya')
+                                            @if ($value['type'] == 'document')
+                                            <a href="{{ route('user_table',$value['slug']) }}"
+                                                value="{{ $value['enc_id'] }}">{{ $value['nama_kategori'] }}</a>
                                             @else
-                                            <a href="{{ route('user_text', $value_k['slug']) }}"
-                                                value="{{ $value_k['enc_id'] }}">{{ $value_k['nama_kategori'] }}</a>
+                                            <a href="{{ route('user_text', $value['slug']) }}"
+                                                value="{{ $value['enc_id'] }}">{{ $value['nama_kategori'] }}</a>
                                             @endif
                                             @endif
                                         </li>
-                                        @endforeach
-                                    </ul>
+                                        {{-- @endforeach --}}
+                                    {{-- </ul>
                                 </li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                     </div>
@@ -262,56 +263,56 @@
     <!-- End: Footer -->
 
     <!-- jQuery Latest Version 1.x -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/jquery-1.12.4.min.js"></script>
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 
     <!-- jQuery UI -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/jquery-ui.min.js"></script>
 
     <!-- jQuery Easing -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/jquery.easing.1.3.js"></script>
 
     <!-- Bootstrap -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/bootstrap.min.js"></script>
 
     <!-- Mobile Menu -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/mmenu.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/mmenu.min.js"></script>
 
     <!-- Harvey - State manager for media queries -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/harvey.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/harvey.min.js"></script>
 
     <!-- Waypoints - Load Elements on View -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/waypoints.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/waypoints.min.js"></script>
 
     <!-- Facts Counter -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/facts.counter.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/facts.counter.min.js"></script>
 
     <!-- MixItUp - Category Filter -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/mixitup.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/mixitup.min.js"></script>
 
     <!-- Owl Carousel -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/owl.carousel.min.js"></script>
 
     <!-- Accordion -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/accordion.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/accordion.min.js"></script>
 
     <!-- Responsive Tabs -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/responsive.tabs.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/responsive.tabs.min.js"></script>
 
     <!-- Responsive Table -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/responsive.table.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/responsive.table.min.js"></script>
 
     <!-- Masonry -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/masonry.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/masonry.min.js"></script>
 
     <!-- Carousel Swipe -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/carousel.swipe.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/carousel.swipe.min.js"></script>
 
     <!-- bxSlider -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/bxslider.min.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/bxslider.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="{{ asset('') }}public/user/js/main.js"></script>
+    <script type="text/javascript" src="{{ asset('') }}user/js/main.js"></script>
 
     @yield('script')
 

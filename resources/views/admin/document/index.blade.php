@@ -155,12 +155,8 @@
                                 </svg>
                             </a>
                         </li>
-                        <li class="breadcrumbs__item disabled"><a class="breadcrumbs__link" href="#"><span>E-commerce</span>
-            <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
-              <use xlink:href="#icon-keyboard-right"></use>
-            </svg></a>
-                        </li>
-                        <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Products</span>
+                        
+                        <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Document</span>
                         </li>
                     </ol>
                 </div>
@@ -505,7 +501,7 @@
 
                                   <div class="media-file d-none">
                                       <div class="media-file__icon">
-                                          <img class="media-file__thumb" src="{{ asset('public/arion') }}/img/content/file-doc.svg" alt="#" />
+                                          <img class="media-file__thumb" src="{{ asset('arion') }}/img/content/file-doc.svg" alt="#" />
                                       </div>
                                       <div class="media-file__right">
                                         <div class="media-file__prepend">
@@ -584,7 +580,7 @@
               <div class="modal__content">
                   <div class="modal__body">
                       <div class="modal__container">
-                          <img class="modal-success__icon" src="{{ asset('public/arion') }}/img/content/checked-success.svg" alt="#">
+                          <img class="modal-success__icon" src="{{ asset('arion') }}/img/content/checked-success.svg" alt="#">
                           <h4 class="modal-success__title">Product was added</h4>
                       </div>
                   </div>
@@ -608,7 +604,7 @@
   <script type="text/javascript">
     var base_url = '{{ url('') }}';
   </script>
-  <script type="text/javascript" src="{{ asset('public/js/dokumen.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/dokumen.js') }}"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 @endsection

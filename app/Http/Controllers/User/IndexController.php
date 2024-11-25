@@ -25,6 +25,7 @@ class IndexController extends Controller
     {
       $kategori = Kategori::with('menu')->where('type', 'document')->get()->toArray();
       $pejabat = Pejabat::all();
+      $menu = Menu::with('kategori')->get();
       $jenis_dokumen = Jenis_dokumen::all();
       $tahun = Dokumen::select('tahun')->groupBy('tahun')->get();
 

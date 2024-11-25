@@ -440,7 +440,7 @@
   <script type="text/javascript">
     var base_url = '{{ url('') }}';
   </script>
-  <script type="text/javascript" src="{{ asset('public/js/kategori.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/kategori.js') }}"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 @endsection

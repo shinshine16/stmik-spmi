@@ -17,21 +17,21 @@
     <meta name="apple-mobile-web-app-title" content="Arion Admin Dashboard" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/vendor.min.css" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/common.css" />
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/arion') }}/img/content/favicons/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('public/arion') }}/img/content/favicons/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/arion') }}/img/content/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('public/arion') }}/img/content/favicons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/arion') }}/img/content/favicons/favicon-16x16.png" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/vendor.min.css" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/common.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('arion') }}/img/content/favicons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('arion') }}/img/content/favicons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('arion') }}/img/content/favicons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('arion') }}/img/content/favicons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('arion') }}/img/content/favicons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('arion') }}/img/content/favicons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('arion') }}/img/content/favicons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('arion') }}/img/content/favicons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('arion') }}/img/content/favicons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('arion') }}/img/content/favicons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('arion') }}/img/content/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('arion') }}/img/content/favicons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('arion') }}/img/content/favicons/favicon-16x16.png" />
     <!-- <link rel="manifest" href="img/content/favicons/manifest.json" />-->
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="../../ms-icon-144x144.html" />
@@ -482,7 +482,7 @@
                                                 <pattern id="schemePattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
                                                     <use xlink:href="#scheme1" transform="scale(0.00142857)"></use>
                                                 </pattern>
-                                                <image id="scheme1" width="700" height="700" xlink:href="{{ asset('public/arion') }}/img/content/demo/scheme-light.jpg"></image>
+                                                <image id="scheme1" width="700" height="700" xlink:href="{{ asset('arion') }}/img/content/demo/scheme-light.jpg"></image>
                                             </defs>
                                         </svg>
                                     </div>
@@ -530,7 +530,7 @@
                                                 <pattern id="schemePattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
                                                     <use xlink:href="#scheme2" transform="scale(0.00142857)"></use>
                                                 </pattern>
-                                                <image id="scheme2" width="700" height="700" xlink:href="{{ asset('public/arion') }}/img/content/demo/scheme-dark.jpg"></image>
+                                                <image id="scheme2" width="700" height="700" xlink:href="{{ asset('arion') }}/img/content/demo/scheme-dark.jpg"></image>
                                             </defs>
                                         </svg>
                                     </div>
@@ -608,11 +608,11 @@
             </div>
         </main>
     </div>
-    <script src="{{ asset('public/arion') }}/js/gsap/gsap.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollTrigger.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/vendor.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/common.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/gsap.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollTrigger.min.js"></script>
+    <script src="{{ asset('arion') }}/js/vendor.min.js"></script>
+    <script src="{{ asset('arion') }}/js/common.js"></script>
 </body>
 
 

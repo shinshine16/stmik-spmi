@@ -29,13 +29,14 @@ function table() {
             'targets': [0],
             'orderable': false,
             className: 'table__td'
-        }, ],
+        },],
         "ordering": false,
         "dom": "lrtip",
         "processing": true,
         "serverSide": true,
         "ajax": {
             "url": base_url + '/admin-document-data',
+            "type": 'POST',
             "dataType": "json",
             "data": function (d) {
                 d.kategori = kategori;
@@ -44,14 +45,22 @@ function table() {
                 d.tahun = tahun;
                 d.status = status;
                 d.publish = publish;
-            },
-            "type": 'POST'
+            }
+
         }
     });
 }
 
+// $(document).on('change', '#filter_kategori, #filter_pejabat, #filter_jenis_dokumen, #filter_tahun, #filter_status, #filter_publish', function () {
+//     $('#myCustomSearchBox').val('')
+//     table()
+// });
+$('#myCustomSearchBox').keyup(function () {
+    dTable.search($(this).val()).draw(); // this  is for customized searchbox with datatable search feature.
+})
+
+
 $(document).on('change', '#filter_kategori, #filter_pejabat, #filter_jenis_dokumen, #filter_tahun, #filter_status, #filter_publish', function () {
-    $('#myCustomSearchBox').val('')
     table()
 });
 
@@ -313,25 +322,19 @@ $(document).on('click', '.download-file', function () {
 
 $("tbody").click(function (evt) {
 
-    if (evt.target.className == 'subSelect')
-
-    {
+    if (evt.target.className == 'subSelect') {
 
 
 
         // alert( parseInt(sessionStorage.getItem('count')) );
 
-        if (sessionStorage.getItem('count') == 'NaN' || sessionStorage.getItem('count') == null)
-
-        {
+        if (sessionStorage.getItem('count') == 'NaN' || sessionStorage.getItem('count') == null) {
 
             sessionStorage.setItem('count', 0);
 
         }
 
-        if (evt.target.checked == true)
-
-        {
+        if (evt.target.checked == true) {
             $('#datatable_paginate').addClass('d-none');
 
             $('#datatable_length').addClass('d-none');
@@ -378,9 +381,7 @@ $("tbody").click(function (evt) {
 
             $("input[value='selected_" + evt.target.defaultValue + "']").remove();
 
-            if (sessionStorage.getItem('count') == 1)
-
-            {
+            if (sessionStorage.getItem('count') == 1) {
 
                 $('.MYbounce').hide();
 

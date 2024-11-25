@@ -36,127 +36,141 @@ class DocumentController extends Controller
   }
 
   public function data(Request $request)
-  {
-    // dd($request->all());
-    $page = ($request->start/$request->length) + 1;
-    $limit = $request->length;
-    $search = $request->search['value'];
-    $filter_kategori = $request->kategori != 'empty__' ? decrypt($request->kategori) : '';
-    $filter_pejabat = $request->pejabat != 'empty__' ? decrypt($request->pejabat) : '';
-    $filter_jenis_dokumen = $request->jenis_dokumen != 'empty__' ? decrypt($request->jenis_dokumen) : '';
-    $filter_tahun = $request->tahun != 'empty__' ? $request->tahun : '';
-    $filter_status = $request->status != 'empty__' ? $request->status : '';
-    $filter_publish = $request->publish != 'empty__' ? $request->publish : '';
+{
+    $page = intval($request->start / $request->length) + 1;
+    $limit = intval($request->length) ?? 10;
+    $search = $request->search['value'] ?? '';
+    $filter_kategori = $request->kategori !== 'empty__' ? decrypt($request->kategori) : null;
+    $filter_pejabat = $request->pejabat !== 'empty__' ? decrypt($request->pejabat) : null;
+    $filter_jenis_dokumen = $request->jenis_dokumen !== 'empty__' ? decrypt($request->jenis_dokumen) : null;
+    $filter_tahun = $request->tahun !== 'empty__' ? $request->tahun : null;
+    $filter_status = $request->status !== 'empty__' ? $request->status : null;
+    $filter_publish = $request->publish !== 'empty__' ? $request->publish : null;
 
     $get_data = Dokumen::with(['pejabat', 'kategori', 'jenis_dokumen'])
-                        ->where(function ($query) use ($filter_kategori, $filter_pejabat, $filter_jenis_dokumen, $filter_tahun, $filter_status, $filter_publish) {
-                            if ($filter_kategori != '') {
-                              $query->where('id_kategori', '=', $filter_kategori);
-                            }
-                            if ($filter_pejabat != '') {
-                              $query->where('id_pejabat', '=', $filter_pejabat);
-                            }
-                            if ($filter_jenis_dokumen != '') {
-                              $query->where('id_jenis_dokumen', '=', $filter_jenis_dokumen);
-                            }
-                            if ($filter_tahun != '') {
-                              $query->where('tahun', '=', $filter_tahun);
-                            }
-                            if ($filter_status != '') {
-                              $query->where('status', '=', $filter_status);
-                            }
-                            if ($filter_publish != '') {
-                              $query->where('terbit', '=', $filter_publish);
-                            }
-                        })
-                        ->where(function ($query) use ($search) {
-                          $query->where(function ($query) use ($search) {
-                            $query->where('no_sk', 'like', '%'.$search.'%')
-                            ->orWhere('nama_standar', 'like', '%'.$search.'%')
-                            ->orWhere('tahun', 'like', '%'.$search.'%')
-                            ->orWhere('terbit', 'like', '%'.$search.'%')
-                            ->orWhere('status', 'like', '%'.$search.'%');
-
-                          })
-                          ->orWhere(function ($query) use ($search) {
-                            $query->whereHas('pejabat', function ($query) use ($search) {
-                              $query->where('nama_pejabat', 'like', '%'.$search.'%');
-                            });
-                            $query->orWhereHas('kategori', function ($query) use ($search) {
-                              $query->where('nama_kategori', 'like', '%'.$search.'%');
-                            });
-                            $query->orWhereHas('jenis_dokumen', function ($query) use ($search) {
-                              $query->where('nama_jenis_dokumen', 'like', '%'.$search.'%');
-                            });
-                          });
-                        });
+        ->when($filter_kategori, function ($query) use ($filter_kategori) {
+            $query->where('id_kategori', $filter_kategori);
+        })
+        ->when($filter_pejabat, function ($query) use ($filter_pejabat) {
+            $query->where('id_pejabat', $filter_pejabat);
+        })
+        ->when($filter_jenis_dokumen, function ($query) use ($filter_jenis_dokumen) {
+            $query->where('id_jenis_dokumen', $filter_jenis_dokumen);
+        })
+        ->when($filter_tahun, function ($query) use ($filter_tahun) {
+            $query->where('tahun', $filter_tahun);
+        })
+        ->when($filter_status, function ($query) use ($filter_status) {
+            $query->where('status', $filter_status);
+        })
+        ->when($filter_publish, function ($query) use ($filter_publish) {
+            $query->where('terbit', $filter_publish);
+        })
+        ->where(function ($query) use ($search) {
+            $query->where('no_sk', 'like', '%' . $search . '%')
+                ->orWhere('nama_standar', 'like', '%' . $search . '%')
+                ->orWhere('tahun', 'like', '%' . $search . '%')
+                ->orWhere('terbit', 'like', '%' . $search . '%')
+                ->orWhere('status', 'like', '%' . $search . '%')
+                ->orWhereHas('pejabat', function ($q) use ($search) {
+                    $q->where('nama_pejabat', 'like', '%' . $search . '%');
+                })
+                ->orWhereHas('kategori', function ($q) use ($search) {
+                    $q->where('nama_kategori', 'like', '%' . $search . '%');
+                })
+                ->orWhereHas('jenis_dokumen', function ($q) use ($search) {
+                    $q->where('nama_jenis_dokumen', 'like', '%' . $search . '%');
+                });
+        });
 
     $recordsFiltered = $get_data->count();
     $recordsTotal = Dokumen::count();
-    $dokumen = $get_data->limit($limit)->offset($request->start)->get()->toArray();
 
-    $data = [];
-    if (empty($dokumen)) {
-      $row = 0;
-    }else{
-      foreach ($dokumen as $key => $val) {
-        $data = [];
-        $data[] = '<div class="table__checkbox table__checkbox--all">
-                    <label class="checkbox">
-                      <input type="checkbox" class="subSelect" value="'.$val['enc_id'].'" data-checkbox="product"><span class="checkbox__marker"><span class="checkbox__marker-icon">
-                      <svg class="icon-icon-checked">
-                        <use xlink:href="#icon-checked"></use>
-                      </svg></span></span>
-                    </label>
-                  </div>';
-        $data[] = '<span>'.$val['no_sk'].'</span>';
-        $data[] = '<span>'.$val['nama_standar'].'</span>';
-        $data[] = '<span>'.$val['kategori']['nama_kategori'].'</span>';
-        $data[] = '<span>'.$val['pejabat']['nama_pejabat'].'</span>';
-        $data[] = '<span>'.$val['jenis_dokumen']['nama_jenis_dokumen'].'</span>';
-        $data[] = '<span>'.$val['tahun'].'</span>';
-        $color_status = $val['status'] == 'Ada' ? 'green' : 'red';
-        $data[] = '<div class="table__status"><span class="table__status-icon color-'.$color_status.'"></span> '.$val['status'].'</div>';
-        $icon_terbit = $val['terbit'] == 'Ya' ? '<i class="fa fa-flag"></i>' : '<i class="fa fa-archive"></i>' ;
-        $color_terbit = $val['terbit'] == 'Ya' ? 'green' : 'red';
-        $data[] = '<center><div class="label badge--'.$color_terbit.' label--md"><span class="label__icon">'.$icon_terbit.'</span>'.$val['terbit'].'</div></center>';
-        $data[] = '<div class="items-more">
-            <button class="items-more__button">
-                <svg class="icon-icon-more">
-                    <use xlink:href="#icon-more"></use>
-                </svg>
-            </button>
+    $dokumen = $get_data->limit($limit)->offset($request->start)->get();
 
-            <div class="dropdown-items dropdown-items--right dropdown-items--up">
-                <div class="dropdown-items__container">
-                    <ul class="dropdown-items__list">
-                        <li class="dropdown-items__item"><button class="dropdown-items__link openModal" data-id="'.$val['enc_id'].'"><span class="dropdown-items__link-icon">
-    <svg class="icon-icon-view">
-      <use xlink:href="#icon-view"></use>
-    </svg></span>Update</button>
-                        </li>
-                        <li class="dropdown-items__item"><button data-id="'.$val['enc_id'].'" class="dropdown-items__link download-file"><span class="dropdown-items__link-icon">
-      <svg class="icon-icon-download">
-        <use xlink:href="#icon-download"></use>
-      </svg></span>Download</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>';
-        $row[] = $data;
-      }
+    $row = [];
+    if ($dokumen->isEmpty()) {
+        $row = 0;
+    } else {
+        foreach ($dokumen as $val) {
+            $data = [];
+            $data[] = '<div class="table__checkbox table__checkbox--all">
+                        <label class="checkbox">
+                          <input type="checkbox" class="subSelect" value="' . $val->enc_id . '" data-checkbox="product">
+                          <span class="checkbox__marker">
+                            <span class="checkbox__marker-icon">
+                              <svg class="icon-icon-checked">
+                                <use xlink:href="#icon-checked"></use>
+                              </svg>
+                            </span>
+                          </span>
+                        </label>
+                      </div>';
+            $data[] = '<span>' . $val->no_sk . '</span>';
+            $data[] = '<span>' . $val->nama_standar . '</span>';
+            $data[] = '<span>' . optional($val->kategori)->nama_kategori . '</span>';
+            $data[] = '<span>' . optional($val->pejabat)->nama_pejabat . '</span>';
+            $data[] = '<span>' . optional($val->jenis_dokumen)->nama_jenis_dokumen . '</span>';
+            $data[] = '<span>' . $val->tahun . '</span>';
+
+            $color_status = $val->status === 'Ada' ? 'green' : 'red';
+            $data[] = '<div class="table__status">
+                        <span class="table__status-icon color-' . $color_status . '"></span>' . $val->status . '
+                      </div>';
+
+            $icon_terbit = $val->terbit === 'Ya' ? '<i class="fa fa-flag"></i>' : '<i class="fa fa-archive"></i>';
+            $color_terbit = $val->terbit === 'Ya' ? 'green' : 'red';
+            $data[] = '<center><div class="label badge--' . $color_terbit . ' label--md">
+                        <span class="label__icon">' . $icon_terbit . '</span>' . $val->terbit . '
+                      </div></center>';
+
+            $data[] = '<div class="items-more">
+                          <button class="items-more__button">
+                              <svg class="icon-icon-more">
+                                  <use xlink:href="#icon-more"></use>
+                              </svg>
+                          </button>
+                          <div class="dropdown-items dropdown-items--right dropdown-items--up">
+                              <div class="dropdown-items__container">
+                                  <ul class="dropdown-items__list">
+                                      <li class="dropdown-items__item">
+                                          <button class="dropdown-items__link openModal" data-id="' . $val->enc_id . '">
+                                              <span class="dropdown-items__link-icon">
+                                                  <svg class="icon-icon-view">
+                                                      <use xlink:href="#icon-view"></use>
+                                                  </svg>
+                                              </span>
+                                              Update
+                                          </button>
+                                      </li>
+                                      <li class="dropdown-items__item">
+                                          <button class="dropdown-items__link download-file" data-id="' . $val->enc_id . '">
+                                              <span class="dropdown-items__link-icon">
+                                                  <svg class="icon-icon-download">
+                                                      <use xlink:href="#icon-download"></use>
+                                                  </svg>
+                                              </span>
+                                              Download
+                                          </button>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>';
+
+            $row[] = $data;
+        }
     }
 
-    $result = array(
-  		'draw' 			  => $request->toArray()['draw'],
-  		'recordsTotal'    => $recordsTotal,
-  		'recordsFiltered' => $recordsFiltered,
-  		'data'			  => $row
-  	);
+    return response()->json([
+        'draw' => intval($request->draw),
+        'recordsTotal' => $recordsTotal,
+        'recordsFiltered' => $recordsFiltered,
+        'data' => $row,
+    ]);
+}
 
-	   echo json_encode($result);
-  }
+
 
   public function data_id(Request $request)
   {

@@ -17,9 +17,9 @@
     <meta name="apple-mobile-web-app-title" content="Arion Admin Dashboard" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/vendor.min.css" />
-    <link rel="stylesheet" href="{{ asset('public/arion') }}/css/common.css" />
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('public') }}/img/logo.png" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/vendor.min.css" />
+    <link rel="stylesheet" href="{{ asset('arion') }}/css/common.css" />
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('') }}img/logo.png" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <!-- <link rel="manifest" href="img/content/favicons/manifest.json" />-->
@@ -546,7 +546,7 @@
                     <div class="page-auth__gradient-shape"></div>
                     <div class="page-auth__gradient-shape"></div>
                     <div class="auth-logo">
-                        <img class="auth-logo__icon" src="{{ asset('') }}public/img/logo_stmik_kampusmerdeka.png" width="44" alt="#" />
+                        <img class="auth-logo__icon" src="{{ asset('') }}img/logo_stmik_kampusmerdeka.png" width="44" alt="#" />
                     </div>
                     <div class="page-auth__gradient-column"></div>
                 </div>
@@ -557,11 +557,11 @@
                         <div class="auth-card__left">
                             <div class="auth-card__logo">
                                 <div class="auth-logo">
-                                    <img class="auth-logo__icon" src="{{ asset('') }}public/img/logo_stmik_kampusmerdeka.png" width="100" alt="#" />
+                                    <img class="auth-logo__icon" src="{{ asset('') }}img/logo_stmik_kampusmerdeka.png" width="100" alt="#" />
                                 </div>
                             </div>
-                            <img class="auth-card__bg auth-bg-image-light" src="{{ asset('public/arion') }}/img/content/auth-bg.jpg" alt="#">
-                            <img class="auth-card__bg auth-bg-image-dark" src="{{ asset('public/arion') }}/img/content/auth-bg-dark.jpg" alt="#">
+                            <img class="auth-card__bg auth-bg-image-light" src="{{ asset('arion') }}/img/content/auth-bg.jpg" alt="#">
+                            <img class="auth-card__bg auth-bg-image-dark" src="{{ asset('arion') }}/img/content/auth-bg-dark.jpg" alt="#">
                         </div>
                         <form class="auth-card__right" method="POST" action="{{ route('login') }}">
                         @csrf
@@ -640,11 +640,11 @@
             </div>
         </main>
     </div>
-    <script src="{{ asset('public/arion') }}/js/gsap/gsap.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/gsap/ScrollTrigger.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/vendor.min.js"></script>
-    <script src="{{ asset('public/arion') }}/js/common.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/gsap.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollToPlugin.min.js"></script>
+    <script src="{{ asset('arion') }}/js/gsap/ScrollTrigger.min.js"></script>
+    <script src="{{ asset('arion') }}/js/vendor.min.js"></script>
+    <script src="{{ asset('arion') }}/js/common.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>

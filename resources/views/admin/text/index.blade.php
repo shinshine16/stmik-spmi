@@ -333,7 +333,7 @@
             <div class="modal__content">
                 <div class="modal__body">
                     <div class="modal__container">
-                        <img class="modal-success__icon" src="{{ asset('public/arion') }}/img/content/checked-success.svg" alt="#">
+                        <img class="modal-success__icon" src="{{ asset('arion') }}/img/content/checked-success.svg" alt="#">
                         <h4 class="modal-success__title">Product was added</h4>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
 </form>
 @endsection
 @section('script')
-<script src="{{ asset('public/ckeditor') }}/ckeditor.js"></script>
+<script src="{{ asset('ckeditor') }}/ckeditor.js"></script>
 <script>    
     sessionStorage.clear();
     var limit, kategori, status, url, search;
@@ -390,8 +390,8 @@
 
     $(document).ready(function(){
         CKEDITOR.replace('isi_input',{
-              filebrowserBrowseUrl: '{{ asset('public/ckfinder') }}/ckfinder.html',
-              filebrowserUploadUrl: '{{ asset('public/ckfinder') }}/core/connector/php/connector.php?command=QuickUpload&type=Files',
+              filebrowserBrowseUrl: '{{ asset('ckfinder') }}/ckfinder.html',
+              filebrowserUploadUrl: '{{ asset('ckfinder') }}/core/connector/php/connector.php?command=QuickUpload&type=Files',
         });
 
         @if ($message = Session::get('success'))
